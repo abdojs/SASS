@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/abdojs/SASS/issues"
   },
-  "homepage": "https://github.com/abdojs/SASS#readme"
+  "homepage": "https://github.com/abdojs/SASS#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.57.1"
+  }
 }
