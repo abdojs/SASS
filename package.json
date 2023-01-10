@@ -1,0 +1,19 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "build your own CSS library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdojs/SASS.git"
+  },
+  "author": "abdeljalil khalal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdojs/SASS/issues"
+  },
+  "homepage": "https://github.com/abdojs/SASS#readme"
+}
