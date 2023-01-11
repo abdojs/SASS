@@ -4,12 +4,12 @@ const sass = require("gulp-sass")(require("sass"));
 
 function buildStyle() {
 
-    return src("sass/").pipe(sass()).pipe(dest("css"));
+    return src("sass/**/*.scss").pipe(sass()).pipe(dest("css"));
 
 }
 
 function watchTask() {
-    watch(["sass/"], buildStyle)
+    watch(["sass/**/*.scss"], buildStyle)
 
 }
 
