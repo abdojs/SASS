@@ -1,0 +1,109 @@
+@use "../../var/border" as b;
+@use "../../var/colors" as c;
+@use "./_mixin.scss" as *;
+
+// $right : nth(b.$borderDir, 2);
+// $bottom : nth(b.$borderDir, 3);
+// $left : nth(b.$borderDir, 4);
+// $top : nth(b.$borderDir, 1);
+
+
+
+
+
+
+
+@include borderDirection(b.$borderDir , c.$theme-colors);
+@include borderWidth(b.$borderDir) // // @each $name ,
+// $color in c.$theme-colors {
+
+
+
+
+
+//     @each $name in b.$borderDir {
+//         @if $name =="" {
+//             .border {
+//                 border: 1px solid $color;
+//             }
+
+//             @for $i from 1 through 6 {
+
+//                 @if $i==6 {
+//                     .border-#{$i} {
+//                         border-width: $i
+//                     }
+//                 }
+
+//                 .border-width {
+//                     @each $name in b.$borderDir {
+//                         @if $name !="" {
+//                             &-#{$name}-#{$i} {
+//                                 border-#{$name}-width: $i
+//                             }
+//                         }
+
+//                     }
+//                 }
+
+//             }
+
+//         }
+
+//         @else {
+//             .border-#{$name} {
+//                 border-#{$name}: 1px solid $color;
+//             }
+//         }
+
+
+
+
+
+//     }
+
+//     // .border-color {
+//     //     @each $name1 in b.$borderDir {
+//     //         @if $name1 !="" {
+//     //             &-#{$name1} {
+//     //                 border-#{$name1}-color: $color
+//     //             }
+//     //         }
+
+//     //     }
+//     // }
+
+
+
+// }
+
+
+
+// /// 
+// /// for loop in border  width and 
+// /// create the classes on the width
+// ///
+
+// @for $i from 1 through 6 {
+
+//     @if $i==6 {
+//         .border-#{$i} {
+//             border-width: $i
+//         }
+//     }
+
+//     .border-width {
+//         @each $name in b.$borderDir {
+//             @if $name !="" {
+//                 &-#{$name}-#{$i} {
+//                     border-#{$name}-width: $i
+//                 }
+//             }
+
+//         }
+//     }
+
+// }
+
+// /// color
+// /// style

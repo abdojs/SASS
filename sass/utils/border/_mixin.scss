@@ -1,0 +1,49 @@
+// @use "../../var/border" as b;
+// @use "../../var/colors" as c;
+
+/// 
+/// for loop in border  direction and 
+/// create the classes on the dection
+/// 
+
+@mixin borderDirection($direction , $colors) {
+
+    @each $name,
+    $color in $colors {
+        @each $dir in $direction {
+            @for $i from 1 through 6 {
+                @if $dir =="" {
+                    .border-width-#{$i} {
+                        border: #{$i}px solid $color;
+                    }
+                }
+
+                @else {
+                    .border-#{$dir}-#{$i} {
+                        border-#{$dir}: #{$i}px solid $color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@mixin borderWidth($direction) {
+    @each $dir in $direction {
+        @for $i from 1 through 6 {
+            @if $dir =="" {
+                .border-width-#{$i} {
+                    border: #{$i}px;
+                }
+            }
+
+            @else {
+                .border-#{$dir}-#{$i} {
+                    border-#{$dir}-width: #{$i}px;
+                }
+            }
+        }
+    }
+
+}
