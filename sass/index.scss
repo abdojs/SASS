@@ -1,0 +1,16 @@
+// include files variables
+@use "./base/base";
+// @use "./card/card";
+@use './utils/border/border';
+
+
+$fonts: (
+    "serif": "Helvetica Neue",
+    "monospace": "Consolas"
+);
+
+// h3 {
+//     font: 18px bold map-get($fonts, "monospace");
+// }
+
+$false: null;
