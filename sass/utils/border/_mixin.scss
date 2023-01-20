@@ -1,49 +1,149 @@
-// @use "../../var/border" as b;
-// @use "../../var/colors" as c;
+@use "../../var/border" as b;
+@use "../../var/colors" as c;
+
+
+
+
+
+
+/// Content border if specified
+
+@mixin directionIsEmpty($name , $value ) {
+
+    .#{$name} {
+        border: #{$value} !important;
+    }
+
+}
+
+/// Content border if specified
+
+@mixin directionIsNotEmpty($name , $value , $preproty) {
+
+
+
+
+    .#{$name} {
+        border-#{$preproty}: #{$value} !important;
+    }
+
+}
 
 /// 
+/// color border
 /// for loop in border  direction and 
 /// create the classes on the dection
-/// 
 
-@mixin borderDirection($direction , $colors) {
+@mixin border {
 
     @each $name,
-    $color in $colors {
-        @each $dir in $direction {
-            @for $i from 1 through 6 {
-                @if $dir =="" {
-                    .border-width-#{$i} {
-                        border: #{$i}px solid $color;
-                    }
-                }
-
-                @else {
-                    .border-#{$dir}-#{$i} {
-                        border-#{$dir}: #{$i}px solid $color;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-@mixin borderWidth($direction) {
-    @each $dir in $direction {
+    $color in c.$theme-colors {
         @for $i from 1 through 6 {
-            @if $dir =="" {
-                .border-width-#{$i} {
-                    border: #{$i}px;
+
+            @if($name =="light") {
+                @if($i ==1) {
+                    $name_: border;
+                    $value: #{$i}px solid $color;
+                    @include directionIsEmpty($name_ , $value );
                 }
             }
 
-            @else {
-                .border-#{$dir}-#{$i} {
-                    border-#{$dir}-width: #{$i}px;
-                }
-            }
+            $name_: border-#{$name}-#{$i};
+            $value: #{$i}px solid $color;
+            @include directionIsEmpty($name_ , $value );
         }
     }
-
 }
+
+@mixin borderWidth {
+    @for $i from 1 through 6 {
+        $name_: border-witdh-#{$i};
+        $value: #{$i}px;
+        $preproty: width;
+        @include directionIsNotEmpty($name_ , $value , $preproty);
+
+    }
+}
+
+
+@mixin borderStyle {
+
+    @each $style in b.$borderStyle {
+        $name_: border-#{$style};
+        $value: $style;
+        $preproty: style;
+        @include directionIsNotEmpty($name_ , $value , $preproty );
+
+        @each $dir in b.$borderDir {
+
+            @if($dir !="") {
+                $preproty: #{$dir}-style;
+                $name_: border-#{$dir}-#{$style};
+                @include directionIsNotEmpty($name_ , $value , $preproty );
+            }
+
+        }
+    }
+}
+
+@mixin borderColor {
+
+    @each $name ,
+    $color in c.$theme-colors {
+        $name_: border-#{$name};
+        $value: $color;
+        $preproty: color;
+        @include directionIsNotEmpty($name_ , $value , $preproty );
+
+        @each $dir in b.$borderDir {
+
+            @if($dir !="") {
+                $preproty: #{$dir}-color;
+                $name_: border-#{$dir}-#{$name};
+                @include directionIsNotEmpty($name_ , $value , $preproty );
+            }
+
+        }
+    }
+}
+
+
+
+///
+/// $name_: border-#{$name}-#{$i};
+// $value: #{$i}px solid $color;
+// @include directionIsEmpty($dir , $name_ , $value );
+/// // $test: $test +1;
+
+
+// $name_: border-#{$name}-#{$i};
+// $value: #{$i}px solid $color;
+// @include directionIsEmpty($dir , $name_ , $value, );
+
+// $name_: border-width-#{$i};
+// $value: #{$i}px;
+// $preproty: width;
+
+// @include directionIsEmpty($dir , $name_ , $value , $preproty);
+
+// $name_: border-#{$dir}-#{$name}-#{$i};
+// $value: #{$i}px solid $color;
+// $preproty: #{$dir};
+
+// @include directionIsNotEmpty($dir , $name_ , $value , $preproty);
+
+// $name_: border-#{$dir}-#{$i};
+// $value: #{$i}px;
+// $preproty: #{$dir}-width;
+
+// @include directionIsNotEmpty($dir , $name_ , $value , $preproty);
+//     @each $style in b.$borderStyle {
+
+//         // @include directionIsEmpty($dir , border-style, $style , "style");
+
+//         // @else {
+//         //     .border-#{$dir}-#{$style} {
+//         //         border-#{$dir}-style: $style !important;
+//         //     }
+//         // }
+//     }
